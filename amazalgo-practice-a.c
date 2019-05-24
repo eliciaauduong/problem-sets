@@ -1,5 +1,5 @@
 // Amazalgo Uni 2019 Practice Contest
-// Given two integers (a and b), get their sum: a?+?b
+// Given two integers (a and b), get their sum: a+b
 
 #include <stdio.h>
 
