@@ -7,6 +7,8 @@
 
 #define MAX 1000
 
+int word_length(int pos, int line[]);
+
 int main(void) {
 
     int sentenceCount = 0;
@@ -16,35 +18,63 @@ int main(void) {
     
     int ch = getchar();
     int i = 0;
-    while (ch != ' ') {
+    int word = 1;
+    while (ch != '\n') {
+        if (ch == ' ') {
+            word++;
+        }
         line[i] = ch;
         i++;
         ch = getchar();
     }
 
-    int new[MAX] = {0}; 
-    int length = 0;
-    length = i;
-    int last = length - 1;
+    int x = 0;
+    int position = 0;
+    while (x < word) {
+        // int new_word[MAX] = {0}; 
+        int length = 0;
+        
+        length = word_length(position, line);
+        /*
+        // shift letters one position forward
+        int j = 0;
+        while (j < length) {
+            new_word[j] = line[j+1];
+            j++;
+        }
 
-    
-    int j = 0;
-    while (j < length) {
-        new[j] = line[j+1];
-        j++;
+        int last = length - 1;
+        // move letter to the end of the word
+        new_word[last] = line[0];
+
+        // add 'ay' to the end of the word
+        new_word[length] = 'a';
+        new_word[length+1] = 'y';
+
+        int k = 0;
+        int total = length + 2;
+        while (k < total) {
+            printf("%c", new_word[k]);
+            k++;
+        }
+        */
+        position = length;
+        x++;
     }
-    new[last] = line[0];
-    new[length] = 'a';
-    new[length+1] = 'y';
-
-    int k = 0;
-    int total = length + 2;
-    while (k < total) {
-        printf("%c", new[k]);
-        k++;
-    }
-
     printf("\n");
 
     return 0;
+}
+
+int word_length(int pos, int line[]) {
+    int len = 0;
+    if (line[pos] == ' ') {
+        pos++;
+    }
+    while (line[pos] != ' ' && line[pos] != '\n' && line[pos] != 0) {
+        len++;
+        pos++;
+    }
+
+    return len;
 }
