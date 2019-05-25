@@ -29,40 +29,43 @@ int main(void) {
     }
 
     int x = 0;
+    int next = 0;
     int position = 0;
     while (x < word) {
-        // int new_word[MAX] = {0}; 
+        int new_word[MAX] = {0};
         int length = 0;
-        
+        // find the length of each word in a line
         length = word_length(position, line);
-        /*
         // shift letters one position forward
         int j = 0;
-        while (j < length) {
-            new_word[j] = line[j+1];
+        int w_next = next;
+        int w_total = next + length;
+        while (w_next < w_total) {
+            new_word[j] = line[w_next + 1];
+            w_next++;
             j++;
         }
 
         int last = length - 1;
         // move letter to the end of the word
-        new_word[last] = line[0];
+        new_word[last] = line[next];
 
         // add 'ay' to the end of the word
         new_word[length] = 'a';
-        new_word[length+1] = 'y';
+        new_word[length + 1] = 'y';
 
         int k = 0;
         int total = length + 2;
+        printf()
         while (k < total) {
             printf("%c", new_word[k]);
             k++;
         }
-        */
+        printf("\n");
+        next = next + length + 1;
         position = length;
         x++;
     }
-    printf("\n");
-
     return 0;
 }
 
